@@ -48,8 +48,13 @@ To build
 
 ## To do's
 
+* Screenshots of solution installation and usage in Dynamics 365 9.1
 * Project AzureDevops integration
 * Testing and release of V1.0
+
+## 3rd party licenses
+
+* The quill license and the quill-react license are preserved in git root
 
 ## Disclaimer / Impressum
 
