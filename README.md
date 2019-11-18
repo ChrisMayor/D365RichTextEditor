@@ -41,6 +41,7 @@ To build
 
 ## To do's
 
+* Project AzureDevops integration
 * Testing and release of V1.0
 
 ## Disclaimer / Impressum
