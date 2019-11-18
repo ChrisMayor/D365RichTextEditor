@@ -28,12 +28,16 @@ The rich text editor can be used as multi line text control in Dynamics 365 Unif
 
 ## Build
 
-
-
 To build
 
-* Run: ng serve -o
-* Build: ng build --configuration=production
+* Verify required toolset (Visual Studio or Visual Studio Build Tools / Power Apps Component Framework CLI / .NET 4.6.2 SDK / Nodejs)
+* Open command prompt in project root
+* npm install
+* md D365RichTextEditorSolution
+* cd D365RichTextEditorSolution
+* pac solution init --publisher-name chrisMayor --publisher-prefix cmey
+* pac solution add-reference --path ..
+* msbuild /t:build /restore
 
 ## To do's
 
