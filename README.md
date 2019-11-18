@@ -22,6 +22,7 @@ The rich text editor can be used as multi line text control in Dynamics 365 Unif
 
 ## Releases for download as managed solution
 
+https://github.com/ChrisMayor/D365RichTextEditor/blob/master/solution/D365RichTextEditorSolution.zip
 
 ## Screenshots
 
