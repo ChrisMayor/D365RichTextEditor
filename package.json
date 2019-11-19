@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/node": "^10.12.18",
     "@types/powerapps-component-framework": "^1.2.0",
+    "loadsh": "0.0.4",
     "office-ui-fabric-react": "^6.189.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
