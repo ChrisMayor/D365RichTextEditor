@@ -20,7 +20,6 @@
     "pcf-scripts": "^1",
     "pcf-start": "^1",
     "@types/react": "^16.8",
-    "@types/react-dom": "^16.8",
-    "loadsh":"^4.17"
+    "@types/react-dom": "^16.8"
   }
 }
