@@ -16,6 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    npm i @types/lodash --save-dev
     npm i lodash --save
     npm i lodash.clonedeep --save
     npm install
