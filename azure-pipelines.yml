@@ -17,6 +17,7 @@ steps:
 
 - script: |
     npm i --save lodash
+    npm i --save lodash.clonedeep
     npm install
     npm run build
   displayName: 'npm install and build'
