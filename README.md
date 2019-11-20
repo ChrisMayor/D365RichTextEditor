@@ -1,4 +1,4 @@
-<img src="https://dev.azure.com/ich0166/D365SwotMatrix/_apis/build/status/ChrisMayor.D365SwotMatrix?branchName=master"></img>
+<img src="https://dev.azure.com/ich0166/D365RichTextControl/_apis/build/status/ChrisMayor.D365RichTextEditor?branchName=master"></img>
 # D365RichTextEditor 0.1
 Dynamics 365 Rich text editor for Unified Interface / Based on PowerApps component framework, React and quill
 
