@@ -16,8 +16,8 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    npm i --save lodash
-    npm i --save lodash.clonedeep
+    npm i -g lodash
+    npm i -g lodash.clonedeep
     npm install
     npm run build
   displayName: 'npm install and build'
