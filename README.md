@@ -32,7 +32,11 @@ The rich text editor can be used as multi line text control in Dynamics 365 Unif
 
 ## Installation of Solution in Dynamics 365 and setup
 
-... will be inserted soon ...
+* Install managed solution
+* Add a multi line text control to form
+* Change control of multi line text field
+
+... screenshots will be added soon ...
 
 ## Build
 
