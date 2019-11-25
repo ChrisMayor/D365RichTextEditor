@@ -66,9 +66,6 @@ To build
 * msbuild /t:build /restore
 
 ## To do's
-
-* Screenshots of solution installation and usage in Dynamics 365 9.1
-* Project AzureDevops integration
 * Testing and release of V1.0
 
 ## 3rd party licenses
