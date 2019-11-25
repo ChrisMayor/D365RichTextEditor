@@ -36,15 +36,19 @@ The rich text editor can be used as multi line text control in Dynamics 365 Unif
 
 ![UI Screenshot](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/Screenshots/1.JPG)
 
-* Add a multi line text control to form
+* Publish customizing
 
 ![UI Screenshot](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/Screenshots/2.JPG)
 
-* Change control of multi line text field
+* Add multi line text field to entity
 
 ![UI Screenshot](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/Screenshots/3.JPG)
 
+* Change control of multi line text field to D365RichTextControl
+
 ![UI Screenshot](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/Screenshots/4.JPG)
+
+* Open form in Unified Interface
 
 ## Build
 
