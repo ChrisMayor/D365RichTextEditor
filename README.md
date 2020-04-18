@@ -63,7 +63,7 @@ To build
 * cd D365RichTextEditorSolution
 * pac solution init --publisher-name chrisMayor --publisher-prefix cmey
 * pac solution add-reference --path ..
-* "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\msbuild" /t:build /restore
+* "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\msbuild" /t:build /restore
 
 ## To do's
 * Testing and release of V1.0
