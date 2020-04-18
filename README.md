@@ -59,6 +59,8 @@ To build
 * Verify required toolset (Visual Studio or Visual Studio Build Tools / Power Apps Component Framework CLI / .NET 4.6.2 SDK / MS BUILD Tools min. v15.9 (Visual Studio 2017+) / Nodejs)
 * Open command prompt in project root
 * npm install
+* npm run build
+* cd D365RichtextEditor
 * md D365RichTextEditorSolution
 * cd D365RichTextEditorSolution
 * pac solution init --publisher-name chrisMayor --publisher-prefix cmey
