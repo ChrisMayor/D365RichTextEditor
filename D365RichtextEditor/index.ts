@@ -48,16 +48,14 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 				this.props.text = context.parameters.text.raw;
 			}
 
-			if (!this._controlViewRendered || controltextchanged) {
-				ReactDOM.render(
-					React.createElement(
-						RichtextEditor,
-						this.props
-					),
-					this.theContainer
-				);
-				this._controlViewRendered = true;
-			}
+			ReactDOM.render(
+				React.createElement(
+					RichtextEditor,
+					this.props
+				),
+				this.theContainer
+			);
+			this._controlViewRendered = true;
 		}
 
 	}
