@@ -56,14 +56,14 @@ The rich text editor can be used as multi line text control in Dynamics 365 Unif
 
 To build
 
-* Verify required toolset (Visual Studio or Visual Studio Build Tools / Power Apps Component Framework CLI / .NET 4.6.2 SDK / Nodejs)
+* Verify required toolset (Visual Studio or Visual Studio Build Tools / Power Apps Component Framework CLI / .NET 4.6.2 SDK / MS BUILD Tools min. v15.9 (Visual Studio 2017+) / Nodejs)
 * Open command prompt in project root
 * npm install
 * md D365RichTextEditorSolution
 * cd D365RichTextEditorSolution
 * pac solution init --publisher-name chrisMayor --publisher-prefix cmey
 * pac solution add-reference --path ..
-* msbuild /t:build /restore
+* "C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\msbuild" /t:build /restore
 
 ## To do's
 * Testing and release of V1.0
