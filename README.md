@@ -25,6 +25,19 @@ The rich text editor can be used as multi line text control in Dynamics 365 Unif
 
 [link to solution](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/solution/D365RichTextEditorSolution.zip)
 
+## Update instructions V1.0 -> V2.0
+
+* From V2.0 the solution is now managed to avoid issues, that further version updates are not reflected in Dynamics
+* To update from V1.0 to V2.0 there are some manual steps in Dynamics necessary, because the V1.0 is unmanaged:
+
+1) Go to solutions and delete the existing D365RichTextEditor solution
+2) Go to your customizings and remove any reference to the existing D365RichTextEditor control (switch back to the default text editor on all fields where you use this custom control)
+3) Go to the default solution and open the customizings
+4) Go to Components/Custom Controls
+5) Delete the unamanged D365Richtexteditor Control
+6) Publish all customizations
+7) Install the current Solution Package zip
+
 ## Screenshots
 
 ### Dynamics 365 Unified Interface Screenshot
