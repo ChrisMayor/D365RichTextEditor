@@ -44,7 +44,7 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 		let readOnlyChanged = this.props.readonly != context.mode.isControlDisabled;
 		if (!this._controlViewRendered || readOnlyChanged) {
 			var controltextchanged = this.props.text != context.parameters.text.raw
-
+			this.props.readonly = context.mode.isControlDisabled;
 			if (context.parameters.text.raw != null && controltextchanged) {
 				this.props.text = context.parameters.text.raw;
 			}
