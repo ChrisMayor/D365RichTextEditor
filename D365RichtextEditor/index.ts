@@ -10,7 +10,8 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 	private theContainer: HTMLDivElement;
 	private props: IRichtextEditorProps = {
 		textChanged: this.textChanged.bind(this),
-		text: ""
+		text: "",
+		readonly: false
 	}
 	private _controlViewRendered: boolean = false;
 
@@ -66,9 +67,17 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 	 * @returns an object based on nomenclature defined in manifest, expecting object[s] for property marked as “bound” or “output”
 	 */
 	public getOutputs(): IOutputs {
-		return {
-			text: this.props.text
-		};
+		let text = this.props.text;
+		if (text != "<p><br></p>") {
+			return {
+				text: this.props.text
+			};
+		}
+		else {
+			return {
+				text: undefined
+			};
+		}
 	}
 
 
