@@ -75,7 +75,7 @@ export class RichtextEditor extends React.Component<IRichtextEditorProps, IState
 
 
         return (
-            <ReactQuill value={this.state.text} readOnly={this.state.readonly} style={Object.assign({}, dynamicsStyle.height, dynamicsStyle.position)}
+            <ReactQuill value={this.state.text} readOnly={this.props.readonly} style={Object.assign({}, dynamicsStyle.height, dynamicsStyle.position)}
                 onChange={this.handleChange} />
         );
     }
