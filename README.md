@@ -30,7 +30,8 @@ The rich text editor can be used as multi line text control in Dynamics 365 Unif
 Features added:
 * Size adjustable, by adding parameters height, max-height, min-height in control
 
-
+![UI Screenshot](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/Screenshots/controlsettings.jpg)
+you may leave height, min-height, max-height empty, then the control will default to a 200px fixed size
 
 Bugs fixed:
 * Empty control doesnt return some html string instead of NULL (https://github.com/ChrisMayor/D365RichTextEditor/issues/5)
@@ -78,6 +79,7 @@ Bugs fixed:
 
 ![UI Screenshot](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/Screenshots/controlsettings.jpg)
 
+* Control settings: you may leave height, min-height, max-height empty, then the control will default to a 200px fixed size
 
 * Open form in Unified Interface
 
