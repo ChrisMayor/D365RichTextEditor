@@ -66,7 +66,7 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 				this.props.maxheight = context.parameters.maxheight.raw;
 			}
 
-
+			this.theContainer.style.height = this.props.height + 40 + "px";
 
 
 
