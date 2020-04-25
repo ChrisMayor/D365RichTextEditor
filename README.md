@@ -76,7 +76,7 @@ Bugs fixed:
 
 ![UI Screenshot](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/Screenshots/5.JPG)
 
-![UI Screenshot](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/Screenshots/controlsettings.JPG)
+![UI Screenshot](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/Screenshots/controlsettings.jpg)
 
 
 * Open form in Unified Interface
