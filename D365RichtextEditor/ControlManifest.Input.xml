@@ -3,6 +3,9 @@
   <control namespace="ChrisMayor" constructor="D365RichtextEditor" version="2.0.1" display-name-key="D365RichtextEditor" description-key="D365RichtextEditor" control-type="standard">
     <!-- property node identifies a specific, configurable piece of data that the control expects from CDS -->
     <property name="text" display-name-key="richtext" description-key="richtext" of-type="Multiple" usage="bound" required="true" />
+    <property name="height" display-name-key="height" description-key="height" of-type="Whole.None" usage="bound" required="false" />
+    <property name="minheight" display-name-key="minheight" description-key="minheight" of-type="Whole.None" usage="bound" required="false" />
+     <property name="maxheight" display-name-key="maxheight" description-key="maxheight" of-type="Whole.None" usage="bound" required="false" />
 
     <resources>
       <code path="index.ts" order="1"/>

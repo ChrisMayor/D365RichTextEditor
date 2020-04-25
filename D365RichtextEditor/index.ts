@@ -11,7 +11,11 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 	private props: IRichtextEditorProps = {
 		textChanged: this.textChanged.bind(this),
 		text: "",
-		readonly: false
+		readonly: false,
+		maxLength: 9999,
+		minheight: 200,
+		maxheight: 200,
+		height: 200
 	}
 	private _controlViewRendered: boolean = false;
 
@@ -43,9 +47,29 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 	 */
 	public updateView(context: ComponentFramework.Context<IInputs>): void {
 		let readOnlyChanged = this.props.readonly != context.mode.isControlDisabled;
+
 		if (!this._controlViewRendered || readOnlyChanged) {
+
 			var controltextchanged = this.props.text != context.parameters.text.raw
 			this.props.readonly = context.mode.isControlDisabled;
+
+			this.props.maxLength = context.parameters.text.attributes?.MaxLength ?? 9999;
+			if (context.parameters.height.raw != null && context.parameters.height.raw != 0) {
+				this.props.height = context.parameters.height.raw;
+			}
+
+			if (context.parameters.minheight.raw != null && context.parameters.minheight.raw != 0) {
+				this.props.minheight = context.parameters.minheight.raw;
+			}
+
+			if (context.parameters.maxheight.raw != null && context.parameters.maxheight.raw != 0) {
+				this.props.maxheight = context.parameters.maxheight.raw;
+			}
+
+
+
+
+
 			if (context.parameters.text.raw != null && controltextchanged) {
 				this.props.text = context.parameters.text.raw;
 			}
@@ -68,7 +92,7 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 	 */
 	public getOutputs(): IOutputs {
 		let text = this.props.text;
-		if (text != "<p><br></p>") {
+		if (text != "") {
 			return {
 				text: this.props.text
 			};
