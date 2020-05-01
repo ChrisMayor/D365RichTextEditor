@@ -37,20 +37,30 @@ export class RichtextEditor extends React.Component<IRichtextEditorProps, IState
         this.handleChange = this.handleChange.bind(this);
     }
 
+    stripToEmptyText(text: string) {
+        let cleanText = text.replace(/<\/?[^>]+(>|$)/g, "");
+        cleanText = cleanText.replace(/\s/g, '');
+        if (cleanText == "") {
+            return "";
+        }
+        else {
+            return text;
+        }
+    }
+
 
     handleChange(value: string, delta: Quill.Delta, source: Quill.Sources, editor: any) {
-        if (value == "<p><br></p>") {
-            value = "";
-        }
 
         if (value.length > this.state.maxLength) {
             value = this.state.previousText;
+
             this.setState({ text: value })
         }
 
         this.setState({ previousText: value, text: value })
 
         if (this.props.textChanged) {
+            value = this.stripToEmptyText(value);
             this.props.textChanged(value);
         }
     }
