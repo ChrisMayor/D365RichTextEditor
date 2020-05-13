@@ -1,5 +1,5 @@
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
-import { IRichtextEditorProps, RichtextEditor } from "./components/richtextEditor"
+import { IRichtextEditorProps, RichtextEditor, IExpVal } from "./components/richtextEditor"
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
@@ -18,7 +18,8 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 		height: 200
 	}
 	private _controlViewRendered: boolean = false;
-
+	private _richtextText: RichtextEditor;
+	getOutputsRun: boolean;
 	/**
 	 * Empty constructor.
 	 */
@@ -38,6 +39,7 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 		this.notifyOutputChanged = notifyOutputChanged;
 		this.theContainer = container;
 
+
 	}
 
 
@@ -47,12 +49,17 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 	 */
 	public updateView(context: ComponentFramework.Context<IInputs>): void {
 		let readOnlyChanged = this.props.readonly != context.mode.isControlDisabled;
+		let controltextchanged: boolean;
 
-		if (!this._controlViewRendered || readOnlyChanged) {
+		if (context.parameters.text.raw != null) {
+			controltextchanged = this.checkIfCurrentTextChanged(context.parameters.text.raw);
+		}
+		else {
+			controltextchanged = false;
+		}
 
-			var controltextchanged = this.props.text != context.parameters.text.raw
+		if (!this._controlViewRendered) {
 			this.props.readonly = context.mode.isControlDisabled;
-
 			this.props.maxLength = context.parameters.text.attributes?.MaxLength ?? 9999;
 			if (context.parameters.height.raw != null && context.parameters.height.raw != 0) {
 				this.props.height = context.parameters.height.raw;
@@ -68,22 +75,56 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 
 			this.theContainer.style.height = this.props.height + 40 + "px";
 
-
-
 			if (context.parameters.text.raw != null && controltextchanged) {
 				this.props.text = context.parameters.text.raw;
+				if (this._controlViewRendered) {
+					this._richtextText.setStateText(this.props.text);
+				}
 			}
 
-			ReactDOM.render(
-				React.createElement(
-					RichtextEditor,
-					this.props
-				),
+			var element = React.createElement(RichtextEditor, this.props);
+			this._richtextText = ReactDOM.render(
+				element,
 				this.theContainer
 			);
 			this._controlViewRendered = true;
 		}
 
+		if (this._controlViewRendered && readOnlyChanged) {
+			this.props.readonly = context.mode.isControlDisabled;
+			this._richtextText.setStateReadOnly(this.props.readonly);
+		}
+
+		if (controltextchanged) {
+			if (context.parameters.text.raw != null && !this.previousValueMatches(context.parameters.text.raw)) {
+				this.props.text = context.parameters.text.raw ?? "";
+				this._richtextText.setStateText(this.props.text);
+			}
+		}
+
+	}
+
+	previousValues: IExpVal[] = [];
+
+	private setPreviousValue(value: string) {
+		let previousValue: IExpVal = { text: value, expireson: new Date(new Date().getTime() + 500) }
+		this.previousValues.push(previousValue)
+	}
+
+	private previousValueMatches(value: string): boolean {
+		let matches: boolean = false;
+		let toRemove: IExpVal[] = [];
+		this.previousValues.forEach(element => {
+			if (new Date() > element.expireson) {
+				toRemove.push(element);
+			}
+			else if (value == element.text) {
+				matches = true;
+			}
+		});
+
+		toRemove.forEach(element => this.previousValues.splice(this.previousValues.indexOf(element), 1));
+		return matches;
 	}
 
 	/** 
@@ -95,6 +136,7 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 		if (text != "") {
 			return {
 				text: this.props.text
+
 			};
 		}
 		else {
@@ -116,8 +158,34 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 
 	private textChanged(text: string) {
 		if (this.props.text !== text) {
+			this.setPreviousValue(this.props.text)
 			this.props.text = text;
-			this.notifyOutputChanged();
+			this.queueNotifiyChanged();
+
 		}
+	}
+
+	private queueActive: boolean = false;
+
+	private queueNotifiyChanged() {
+
+		if (!this.queueActive) {
+			this.queueActive = true;
+			setTimeout(() => {
+				this.notifyOutputChanged();
+				this.queueActive = false;
+			}, 100
+			);
+		}
+	}
+
+	private checkIfCurrentTextChanged(newText: string) {
+		if (this._richtextText != undefined && this._richtextText) {
+			return this._richtextText.getCurrentTextFromState() != newText;
+		}
+		else {
+			return this.props.text != newText;
+		}
+
 	}
 }

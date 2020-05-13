@@ -23,6 +23,11 @@ export interface IState {
     maxheight: number;
 }
 
+export interface IExpVal {
+    text: string;
+    expireson: Date;
+
+}
 
 
 
@@ -48,6 +53,19 @@ export class RichtextEditor extends React.Component<IRichtextEditorProps, IState
         }
     }
 
+    getCurrentTextFromState() {
+        return this.state.text;
+    }
+
+    setStateText(value: string) {
+        let prevvalue = this.state.previousText;
+
+        this.setState({ previousText: prevvalue, text: value })
+    }
+
+    setStateReadOnly(readOnly: boolean) {
+        this.setState({ readonly: readOnly })
+    }
 
     handleChange(value: string, delta: Quill.Delta, source: Quill.Sources, editor: any) {
 
