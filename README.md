@@ -21,11 +21,17 @@ The rich text editor can be used as multi line text control in Dynamics 365 Unif
 
 * Tested on Dynamics 365 9.1
 
-## Releases for download as managed solution (V2.2)
+## Releases for download as managed solution (V2.4)
 
 [link to solution](https://github.com/ChrisMayor/D365RichTextEditor/blob/master/solution/D365RichTextEditorSolution.zip)
 
-## Update V2.0 -> V2.2
+## Changelog
+
+### Update V2.4
+
+* Empty strings - in any length and also if they are mixed with html tags - are now handled as null (issue https://github.com/ChrisMayor/D365RichTextEditor/issues/5)
+
+### Update V2.0 -> V2.2
 * Update your V2.0 managed solution with the default settings
 
 Features added:
@@ -41,7 +47,7 @@ Bugs fixed:
 * Control doesnt support disabling (https://github.com/ChrisMayor/D365RichTextEditor/issues/4)
 * Control doesnt behave like other controls in Dynamics (auto groth, size not adjustable) (https://github.com/ChrisMayor/D365RichTextEditor/issues/4)
 
-## Update instructions V1.0 -> V2.0
+### Update instructions V1.0 -> V2.0
 
 * From V2.0 the solution is now managed to avoid issues, that further version updates are not reflected in Dynamics
 * To update from V1.0 to V2.0 there are some manual steps in Dynamics necessary, because the V1.0 is unmanaged:
