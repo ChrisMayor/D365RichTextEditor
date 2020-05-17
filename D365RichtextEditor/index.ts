@@ -6,8 +6,11 @@ import * as ReactDOM from 'react-dom';
 export class D365RichtextEditor implements ComponentFramework.StandardControl<IInputs, IOutputs> {
 
 
+	private queueActive: boolean = false;
 	private notifyOutputChanged: () => void;
 	private theContainer: HTMLDivElement;
+	private previousValues: IExpVal[] = [];
+
 	private props: IRichtextEditorProps = {
 		textChanged: this.textChanged.bind(this),
 		text: "",
@@ -38,8 +41,6 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 	public init(context: ComponentFramework.Context<IInputs>, notifyOutputChanged: () => void, state: ComponentFramework.Dictionary, container: HTMLDivElement) {
 		this.notifyOutputChanged = notifyOutputChanged;
 		this.theContainer = container;
-
-
 	}
 
 
@@ -104,8 +105,6 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 
 	}
 
-	previousValues: IExpVal[] = [];
-
 	private setPreviousValue(value: string) {
 		let previousValue: IExpVal = { text: value, expireson: new Date(new Date().getTime() + 500) }
 		this.previousValues.push(previousValue)
@@ -136,7 +135,6 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 		if (text != "") {
 			return {
 				text: this.props.text
-
 			};
 		}
 		else {
@@ -165,10 +163,7 @@ export class D365RichtextEditor implements ComponentFramework.StandardControl<II
 		}
 	}
 
-	private queueActive: boolean = false;
-
 	private queueNotifiyChanged() {
-
 		if (!this.queueActive) {
 			this.queueActive = true;
 			setTimeout(() => {
