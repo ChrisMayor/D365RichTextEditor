@@ -73,6 +73,10 @@ To build
 
 ## Changelog
 
+### Update V2.6
+
+* Fixed read only flag / disabling of form
+
 ### Update V2.5
 
 * Support of SetValue() in Dynamics https://github.com/ChrisMayor/D365RichTextEditor/issues/6 (async changes are currently really bad handled in the pcf framework, so several workarounds were necessary)
