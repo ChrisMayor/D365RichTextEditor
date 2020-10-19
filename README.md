@@ -2,6 +2,8 @@
 # D365RichTextEditor
 Dynamics 365 Rich text editor for Unified Interface / Based on PowerApps component framework, React and quill
 
+Please note: since October, Microsoft rolled out "Microsoft Dynamics 365 – Release Wave 2 2020" including the brand new "Rich Text Editer Control". I will keep this Repository public for maintainance reasons, but you should consider using the new control included in D365.
+
 ## Description
 
 Rich text editor control for Dynamics 365 Unified Interface and Microsoft Power Apps.
